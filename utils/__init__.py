@@ -20,3 +20,21 @@ def rotate(image, deg, center=None, scale=1.0):
 
     return rotated
 
+
+def resize(image, width=None, height=None, inter=cv2.INTER_AREA):
+    (h, w) = image.shape[:2]
+    aspect = w / h
+
+    if width is None and height is None:
+        return image
+
+    if width is not None:
+        w = width
+        h = width / aspect
+    elif height is not None:
+        w = height * aspect
+        h = height
+
+    resized = cv2.resize(image, (int(w), int(h)), interpolation=inter)
+
+    return resized
