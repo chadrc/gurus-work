@@ -38,3 +38,16 @@ def resize(image, width=None, height=None, inter=cv2.INTER_AREA):
     resized = cv2.resize(image, (int(w), int(h)), interpolation=inter)
 
     return resized
+
+
+def flip_h(image):
+    return cv2.flip(image, 0)
+
+
+def flip_v(image):
+    return cv2.flip(image, 1)
+
+
+def flip_hv(image):
+    return cv2.flip(image, -1)
+

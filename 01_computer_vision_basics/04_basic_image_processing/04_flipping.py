@@ -20,11 +20,11 @@ canvas = np.zeros((canvasH, canvasW, 3), dtype="uint8")
 # Put original image in top left
 canvas[0:h, 0:w] = image
 # Flip vertically and put in top right
-canvas[0:h, w:canvasW] = cv2.flip(image, 1)
+canvas[0:h, w:canvasW] = utils.flip_v(image)
 # Flip horizontally and put in bottom left
-canvas[h:canvasH, 0:w] = cv2.flip(image, 0)
+canvas[h:canvasH, 0:w] = utils.flip_h(image)
 # Flip horizontally and vertically and put in bottom right
-canvas[h:canvasH, w:canvasW] = cv2.flip(image, -1)
+canvas[h:canvasH, w:canvasW] = utils.flip_hv(image)
 
 cv2.imshow("Flipping", canvas)
 cv2.waitKey(0)
